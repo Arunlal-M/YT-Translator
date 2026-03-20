@@ -1,0 +1,23 @@
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Environment Variables / Secrets
+.env
+
+# Python compilation files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
