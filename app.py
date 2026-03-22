@@ -1,3 +1,4 @@
+import re
 import streamlit as st
 from youtube_transcript_api import YouTubeTranscriptApi
 from google import genai
@@ -86,7 +87,8 @@ if st.button("Translate"):
     else:
         try:
             # Extract video ID
-            video_id = youtube_url.split("v=")[-1].split("&")[0]
+            match = re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11})(?:\?|&|/|$)", youtube_url)
+            video_id = match.group(1) if match else youtube_url
             
             with st.spinner("Fetching transcript..."):
                 # Get transcript list and fetch the first available transcript
